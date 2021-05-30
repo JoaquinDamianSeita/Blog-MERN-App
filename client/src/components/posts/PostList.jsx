@@ -30,7 +30,7 @@ export default function PostList() {
             return (
               <div key={post._id}>
                 <h4>{post.title}</h4>
-                <small>{post.date}</small>
+                <small className="d-block">{post.date}</small>
                 <small>_id: {post._id}</small>
                 <p>
                   {post.content.substring(0, 100) + " ..."}

@@ -19,21 +19,21 @@ export default function PostAdd(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (!post.date || !post.title || !post.content) {
+    if (post.date || post.title || post.content) {
+      console.log("nada");
       return axios
         .post("/api/posts", {
           date: post.date,
           title: post.title,
           content: post.content,
         })
-        .then((response) => {
+        .then( (response) => {
           dispatch(addPost(response.date));
           setFields(initialState);
-          props.history.push("/posts");
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
     }
   }
 

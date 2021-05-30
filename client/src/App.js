@@ -3,6 +3,8 @@ import Footer from "../src/components/Footer";
 import {BrowserRouter as Router , Route, Switch } from "react-router-dom";
 import PostsList from "../src/components/posts/PostList";
 import PostAdd from "../src/components/posts/PostAdd";
+import Login from "../src/components/users/login";
+import Register from "../src/components/users/register";
 
 function App() {
   return (
@@ -24,10 +26,10 @@ function Main() {
       <Route exact path="/posts" component={PostsList} />
       <Route exact path="/posts/new" component={PostAdd} />
       {/* <Route exact path="/posts/:_id" component={PostInfo} />
-      <Route exact path="/posts/:_id/edit" component={PostEdit} />
+      <Route exact path="/posts/:_id/edit" component={PostEdit} /> */}
 
       <Route exact path="/register" component={Register} />
-      <Route exact path="/login" component={Login} /> */}
+      <Route exact path="/login" component={Login} />
     </Switch>
   );
 
