@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
 
-const { checkJwt } = require("../authz/check-jwt");
-
-
+const { checkJwt, checkJwtPermissions } = require("../authz/check-jwt");
 
 //.......................Posts routes manager.................................................
 
@@ -29,10 +27,11 @@ router.get("/posts/:id", function (req, res) {
   });
 });
 
-router.post("/posts", function (req, res) {
-  let post = new Post(req.body);
-  post.save()
-  .then(function (post) {
+router.post("/posts",checkJwt, function (req, res) {
+  let post = new Post(req.body.body);
+  post
+    .save()
+    .then(function (post) {
       res.send(post);
     })
     .catch(function (err) {
@@ -40,7 +39,7 @@ router.post("/posts", function (req, res) {
     });
 });
 
-router.patch("/posts/:id", function (req, res) {
+router.patch("/posts/:id", checkJwt, function (req, res) {
   Post.findByIdAndUpdate(req.params.id, req.body)
     .then(function () {
       res.json("Post Updated");
@@ -50,13 +49,12 @@ router.patch("/posts/:id", function (req, res) {
     });
 });
 
-router.delete("/posts/:id", function (req, res) {
+router.delete("/posts/:id", checkJwt, function (req, res) {
   Post.findById(req.params.id, function (err, post) {
     if (!post) {
       res.status(404).send("Post not found");
     } else {
-      Post
-        .findByIdAndRemove(req.params.id)
+      Post.findByIdAndRemove(req.params.id)
         .then(function () {
           res.status(200).json("Post deleted");
         })

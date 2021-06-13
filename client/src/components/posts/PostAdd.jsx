@@ -3,11 +3,14 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { addPost } from "../../actions";
 
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function PostAdd(props) {
   const initialState = { name: "", tel: "", email: "", adress: "" };
   const [post, setFields] = useState(initialState);
   const dispatch = useDispatch();
+
+  const { getAccessTokenSilently } = useAuth0();
 
   function handleChange(event) {
     setFields({ ...post, [event.target.name]: event.target.value });
@@ -17,23 +20,56 @@ export default function PostAdd(props) {
     props.history.push("/posts");
   }
 
-  function handleSubmit(event) {
+  // const callSecureApi = async () => {
+  //   try {
+  //     const token = await getAccessTokenSilently();
+
+  //     const response = await fetch(
+  //       `${serverUrl}/api/role`,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         }
+  //       }
+  //     );
+
+  //     const responseData = await response.json();
+
+  //     setMessage(responseData.message);
+  //   } catch (error) {
+  //     setMessage(error.message);
+  //   }
+  // };
+
+  async function handleSubmit(event) {
     event.preventDefault();
+
+    const token = await getAccessTokenSilently();
+    console.log(token);
+
     if (post.date || post.title || post.content) {
-      console.log("nada");
       return axios
-        .post("/api/posts", {
-          date: post.date,
-          title: post.title,
-          content: post.content,
+        .post("/api/post", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
-        .then( (response) => {
+        .then(
+          axios.post("/api/posts", {
+            body: {
+              date: post.date,
+              title: post.title,
+              content: post.content,
+            },
+          })
+        )
+        .then((response) => {
           dispatch(addPost(response.date));
           setFields(initialState);
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
   }
 

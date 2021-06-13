@@ -6,7 +6,9 @@ export const SET_POST = "SET_POST";
 export const REMOVE_POST = "REMOVE_POST";
 export const REPLACE_POST = "REPLACE_POST";
 
+
 export function setPosts() {
+
   return function (dispatch) {
     return get("/api/posts")
       .then(function (response) {
@@ -26,22 +28,22 @@ export function addPost(post) {
 }
 
 export function setPost(post) {
-    return {
-        type: SET_POST,
-        post: post,
-    }
+  return {
+    type: SET_POST,
+    post: post,
+  };
 }
 
-export function removePost(_id){
-    return {
-        type: REMOVE_POST,
-        _id: _id,
-    }
+export function removePost(_id) {
+  return {
+    type: REMOVE_POST,
+    _id: _id,
+  };
 }
 
-export function replacePost(post){
-    return {
-        type:REPLACE_POST,
-        post: post,
-    }
+export function replacePost(post) {
+  return {
+    type: REPLACE_POST,
+    post: post,
+  };
 }

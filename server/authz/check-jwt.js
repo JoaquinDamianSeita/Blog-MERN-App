@@ -1,6 +1,7 @@
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 const { domain, audience } = require("../config/env.dev");
+const jwtAuthz = require("express-jwt-authz");
 
 const checkJwt = jwt({
   secret: jwksRsa.expressJwtSecret({
@@ -15,6 +16,11 @@ const checkJwt = jwt({
   algorithms: ["RS256"],
 });
 
+const checkJwtPermissions = jwtAuthz(["create:post"], {
+  customScopeKey: "permissions",
+});
+
 module.exports = {
   checkJwt,
+  checkJwtPermissions,
 };
