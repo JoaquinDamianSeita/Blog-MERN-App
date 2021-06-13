@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div>
       <div class="footer-padding"></div>
-      <div class="footer">
+      <div class="footer fixed-bottom">
         <p>Made with MERN by Joaquin Seita</p>
       </div>
     </div>

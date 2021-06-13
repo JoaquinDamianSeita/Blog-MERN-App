@@ -1,28 +1,27 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/index");
-const session = require("express-session");
-const passport = require("passport");
+const cors = require("cors");
+const helmet = require("helmet");
+const { clientOrigins, serverPort } = require("./config/env.dev");
 
 const app = express();
-const PORT = 3001;
 const MONGODB_URI = "mongodb://localhost:27017/blog-app-db";
 
+app.use(helmet());
+app.use(cors({ origin: clientOrigins }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 app.use("/api", router);
 
-app.use(
-  session({
-    secret: "Nuestro pequeño secreto.",
-    resave: false,
-    saveUninitialized: false,
-  })
-);
+app.use(function (err, req, res, next) {
+  console.log(err);
+  res.status(500).send(err.message);
+});
 
-app.use(passport.initialize());
-app.use(passport.session());
-
+//------------------------mongoose------------------
 mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -38,6 +37,6 @@ mongoose.connection.on("error", function (error) {
   console.log("Mongoose Connection Error : " + error);
 });
 
-app.listen(PORT, function () {
-  console.log(`Server listening on port ${PORT}.`);
+app.listen(serverPort, function () {
+  console.log(`Server listening on port ${serverPort}.`);
 });

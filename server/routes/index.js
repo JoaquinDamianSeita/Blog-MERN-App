@@ -1,52 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
-const User = require("../models/user");
-const passport = require("passport");
 
-
-//........................User routes Manager......................................
-
-
-router.get("/logout",function(req,res){
-    req.logOut();
-    res.redirect("/login");
-})
-
-router.post("/register", (req, res) => {
-  User.register(
-    { username: req.body.username },
-    req.body.password,
-    function (err) {
-      if (err) {
-        console.log(err);
-        res.redirect("/register");
-      } else {
-        passport.authenticate("local")(req, res, function () {
-          res.redirect("/posts");
-        });
-      }
-    }
-  );
-});
-
-router.post("/login", (req, res) => {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
-
-  req.login(user, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.redirect("/posts");
-      });
-    }
-  });
-});
-
+const { checkJwt } = require("../authz/check-jwt");
 
 
 

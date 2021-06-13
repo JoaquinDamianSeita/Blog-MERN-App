@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { addPost } from "../../actions";
-import NavBarPosts from "../NavBars/NavBarPosts";
+
 
 export default function PostAdd(props) {
   const initialState = { name: "", tel: "", email: "", adress: "" };
@@ -39,7 +39,6 @@ export default function PostAdd(props) {
 
   return (
     <div>
-      <NavBarPosts />
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="form-group">

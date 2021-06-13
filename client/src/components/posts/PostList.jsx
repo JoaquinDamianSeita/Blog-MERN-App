@@ -1,5 +1,4 @@
 import React from "react";
-import NavBarPosts from "../NavBars/NavBarPosts";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,6 @@ export default function PostList() {
 
   return (
     <div>
-      <NavBarPosts />
       <div className="container">
         <div>
           <h2>
