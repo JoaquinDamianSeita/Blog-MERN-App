@@ -45,23 +45,23 @@ export default function PostAdd(props) {
     event.preventDefault();
 
     const token = await getAccessTokenSilently();
-    console.log(token);
 
     if (post.date || post.title || post.content) {
       return axios
-        .post("/api/post", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then(
-          axios.post("/api/posts", {
-            body: {
+        .post(
+          "/api/posts",
+          {
+            data: {
               date: post.date,
               title: post.title,
               content: post.content,
             },
-          })
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         )
         .then((response) => {
           dispatch(addPost(response.date));

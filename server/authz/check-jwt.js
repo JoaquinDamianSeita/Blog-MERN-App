@@ -16,7 +16,7 @@ const checkJwt = jwt({
   algorithms: ["RS256"],
 });
 
-const checkJwtPermissions = jwtAuthz(["create:post"], {
+const checkJwtPermissions = jwtAuthz(["create:post", "delete:post"], {
   customScopeKey: "permissions",
 });
 

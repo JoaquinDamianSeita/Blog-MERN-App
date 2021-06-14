@@ -27,8 +27,8 @@ router.get("/posts/:id", function (req, res) {
   });
 });
 
-router.post("/posts",checkJwt, function (req, res) {
-  let post = new Post(req.body.body);
+router.post("/posts", checkJwt, checkJwtPermissions, function (req, res) {
+  let post = new Post(req.body.data);
   post
     .save()
     .then(function (post) {
@@ -39,7 +39,7 @@ router.post("/posts",checkJwt, function (req, res) {
     });
 });
 
-router.patch("/posts/:id", checkJwt, function (req, res) {
+router.patch("/posts/:id", checkJwt, checkJwtPermissions, function (req, res) {
   Post.findByIdAndUpdate(req.params.id, req.body)
     .then(function () {
       res.json("Post Updated");
@@ -49,7 +49,7 @@ router.patch("/posts/:id", checkJwt, function (req, res) {
     });
 });
 
-router.delete("/posts/:id", checkJwt, function (req, res) {
+router.delete("/posts/:id", checkJwt, checkJwtPermissions, function (req, res) {
   Post.findById(req.params.id, function (err, post) {
     if (!post) {
       res.status(404).send("Post not found");
