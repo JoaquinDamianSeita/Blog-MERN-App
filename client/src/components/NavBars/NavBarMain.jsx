@@ -4,18 +4,18 @@ import AuthenticationButton from "../auth0/Authentication-button";
 
 function NavBarMain() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <nav className="navbar navbar-expand-lg navbar-dark background-black mb-4">
       <div className="container">
-        <ul className="nav-brand" style={{ color: "#fff" }}>
+        <h3 className="nav-brand" style={{ color: "#fff" }}>
           Blog
-        </ul>
+        </h3>
         <ul className="navbar-nav mr-auto">
-          <li className="nav-item">
+          <li className="nav-item px-1">
             <NavLink exact className="nav-link" activeClassName="active" to="/">
               Home
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-item px-1">
             <NavLink
               exact
               className="nav-link"
@@ -25,7 +25,7 @@ function NavBarMain() {
               Posts
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-item px-1">
             <NavLink
               exact
               className="nav-link"
@@ -35,7 +35,7 @@ function NavBarMain() {
               Perfil
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-item px-1">
             <AuthenticationButton />
           </li>
         </ul>

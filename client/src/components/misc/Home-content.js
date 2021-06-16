@@ -1,25 +1,24 @@
 import React from "react";
 
 const HomeContent = () => (
-  <div className="next-steps">
-    <h2 className="my-5 text-center">What can I do next?</h2>
+  <div className="next-steps px-5">
+    <h2 className="my-5 text-center">Funciones implementadas:</h2>
 
     <div className="row">
-      <div className="col-md-5 mb-4">
+      <div className="col-md-5 mb-4 ">
         <h6 className="mb-3">
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://auth0.com/docs/connections"
+            href="https://auth0.com/"
           >
             <i className="fas fa-link mr-2" />
-            Configure other identity providers
+            Login y Roles con Auth0
           </a>
         </h6>
         <p>
-          Auth0 supports social providers as Facebook, Twitter, Instagram and
-          100+, Enterprise providers as Microsoft Office 365, Google Apps,
-          Azure, and more. You can also use any OAuth2 Authorization Server.
+          Auth0 es una plataforma de autenticación y autorización adaptable y
+          fácil de implementar.
         </p>
       </div>
 
@@ -30,17 +29,15 @@ const HomeContent = () => (
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://auth0.com/docs/multifactor-authentication"
+            href="https://github.com/JoaquinDamianSeita/Blog-MERN-App"
           >
             <i className="fas fa-link mr-2" />
-            Enable Multi-Factor Authentication
+            Modo administrador
           </a>
         </h6>
         <p>
-          Add an extra layer of security by enabling Multi-factor
-          Authentication, requiring your users to provide more than one piece of
-          identifying information. Push notifications, authenticator apps, SMS,
-          and DUO Security are supported.
+          Un modo donde se pueden crear,borrar y editar posteos de la pagina.
+          Solo lo pueden utilizar usuarios autorizados.
         </p>
       </div>
     </div>
@@ -51,16 +48,15 @@ const HomeContent = () => (
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://auth0.com/docs/anomaly-detection"
+            href="https://www.mongodb.com/cloud/atlas"
           >
             <i className="fas fa-link mr-2" />
-            Anomaly Detection
+            Seccion posteos
           </a>
         </h6>
         <p>
-          Auth0 can detect anomalies and stop malicious attempts to access your
-          application. Anomaly detection can alert you and your users of
-          suspicious activity, as well as block further login attempts.
+          En esta seccion se muestran los posteos directamente desde la base de
+          datos en MongoDB Atlas.
         </p>
       </div>
 
@@ -71,17 +67,15 @@ const HomeContent = () => (
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://auth0.com/docs/rules"
+            href="http://localhost:3000/profile"
           >
             <i className="fas fa-link mr-2" />
-            Learn About Rules
+            Seccion perfil
           </a>
         </h6>
         <p>
-          Rules are JavaScript functions that execute when a user authenticates
-          to your application. They run once the authentication process is
-          complete, and you can use them to customize and extend Auth0's
-          capabilities.
+          En esta parte de la pagina los usuarios pueden ver la informacion a la
+          que accede la app de forma transparente.
         </p>
       </div>
     </div>

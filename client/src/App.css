@@ -1,3 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+p,
+a {
+  font-family: "Open Sans", sans-serif;
+}
+
+.background-white{
+  background-color: #ececec;
+}
+
+.background-black{
+  background: #000;
+}
+
 .footer-padding {
   padding-bottom: 60px;
 }

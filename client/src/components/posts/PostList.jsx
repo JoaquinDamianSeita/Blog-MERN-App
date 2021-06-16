@@ -9,13 +9,10 @@ export default function PostList() {
 
   return (
     <div>
-      <div className="container">
+      <div className="container background-white">
         <div>
           <h2>
-            Home
-            <Link to="/posts/new" className="btn btn-primary float-end">
-              Create Post
-            </Link>
+            Posteos
           </h2>
           <p>
             En esta parte de la pagina se van a mostar los articulos publicados

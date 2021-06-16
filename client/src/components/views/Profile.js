@@ -8,20 +8,20 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="row align-items-center profile-header">
-        <div className="col-md-2 mb-3">
+      <div className="row px-5">
+        <div className= "mb-3 d-flex justify-content-center">
           <img
             src={picture}
             alt="Profile"
-            className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+            className="rounded-circle mb-2 mb-md-0 mx-4"
           />
-        </div>
-        <div className="col-md text-center text-md-left">
-          <h2>{name}</h2>
-          <p className="lead text-muted">{email}</p>
+          <div className="text-center text-md">
+            <h2>{name}</h2>
+            <p className="lead text-muted">{email}</p>
+          </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row px-5">
         <pre className="col-12 text-light bg-dark p-4">
           {JSON.stringify(user, null, 2)}
         </pre>
