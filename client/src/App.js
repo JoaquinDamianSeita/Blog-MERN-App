@@ -7,11 +7,10 @@ import NavBarMain from "./components/NavBars/NavBarMain";
 
 import PostsList from "../src/components/posts/PostList";
 import PostAdd from "../src/components/posts/PostAdd";
-import Login from "../src/components/users/login";
-import Register from "../src/components/users/register";
 
 import Profile from "../src/components/views/Profile";
 import Home from "../src/components/views/Home";
+import Heroadmin from "./components/misc/Hero-admin";
 import ProtectedRoute from "../src/components/auth0/Protected-route";
 
 function App() {
@@ -44,11 +43,9 @@ function Main() {
       {/* <Route exact path="/posts/:_id" component={PostInfo} />
       <Route exact path="/posts/:_id/edit" component={PostEdit} /> */}
 
-      <Route exact path="/register" component={Register} />
-      <Route exact path="/login" component={Login} />
-
       <ProtectedRoute exact path="/posts" component={PostsList} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+      <ProtectedRoute exact path="/admin-home" component={Heroadmin} />
     </Switch>
   );
 }

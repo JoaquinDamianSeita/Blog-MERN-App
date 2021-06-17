@@ -4,16 +4,21 @@
   font-family: "Roboto", sans-serif;
 }
 
+textarea {
+  resize: none;
+  height: 100px;
+}
+
 p,
 a {
   font-family: "Open Sans", sans-serif;
 }
 
-.background-white{
+.background-white {
   background-color: #ececec;
 }
 
-.background-black{
+.background-black {
   background: #000;
 }
 

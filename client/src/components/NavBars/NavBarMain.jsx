@@ -6,8 +6,16 @@ function NavBarMain() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark background-black mb-4">
       <div className="container">
-        <h3 className="nav-brand" style={{ color: "#fff" }}>
-          Blog
+        <h3>
+          <NavLink
+            exact
+            className="nav-link"
+            style={{ color: "#fff" }}
+            activeClassName="active"
+            to="/admin-home"
+          >
+            Blog
+          </NavLink>
         </h3>
         <ul className="navbar-nav mr-auto">
           <li className="nav-item px-1">
@@ -22,7 +30,7 @@ function NavBarMain() {
               activeClassName="active"
               to="/posts"
             >
-              Posts
+              Posteos
             </NavLink>
           </li>
           <li className="nav-item px-1">

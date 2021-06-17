@@ -27,16 +27,15 @@ const HomeContent = () => (
       <div className="col-md-5 mb-4">
         <h6 className="mb-3">
           <a
-            target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/JoaquinDamianSeita/Blog-MERN-App"
+            href="http://localhost:3000/admin-home"
           >
             <i className="fas fa-link mr-2" />
             Modo administrador
           </a>
         </h6>
         <p>
-          Un modo donde se pueden crear,borrar y editar posteos de la pagina.
+          Un modo donde se pueden crear, borrar y editar posteos de la página.
           Solo lo pueden utilizar usuarios autorizados.
         </p>
       </div>
@@ -51,11 +50,11 @@ const HomeContent = () => (
             href="https://www.mongodb.com/cloud/atlas"
           >
             <i className="fas fa-link mr-2" />
-            Seccion posteos
+            MongoDB
           </a>
         </h6>
         <p>
-          En esta seccion se muestran los posteos directamente desde la base de
+          En esta sección se muestran los posteos directamente desde la base de
           datos en MongoDB Atlas.
         </p>
       </div>
@@ -65,16 +64,15 @@ const HomeContent = () => (
       <div className="col-md-5 mb-4">
         <h6 className="mb-3">
           <a
-            target="_blank"
             rel="noopener noreferrer"
             href="http://localhost:3000/profile"
           >
             <i className="fas fa-link mr-2" />
-            Seccion perfil
+            Sección perfil
           </a>
         </h6>
         <p>
-          En esta parte de la pagina los usuarios pueden ver la informacion a la
+          En esta parte de la página los usuarios pueden ver la información a la
           que accede la app de forma transparente.
         </p>
       </div>

@@ -10,7 +10,7 @@ const Hero = () => (
     />
     <h1 className="mb-4">Blog MERN app</h1>
     <p className="lead">
-      Esta es una aplicacion web sencilla que simula un blog de posteos
+      Esta es una aplicación web sencilla que simula un blog de posteos
       utilizando el stack MERN
     </p>
   </div>

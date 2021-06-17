@@ -20,26 +20,6 @@ export default function PostAdd(props) {
     props.history.push("/posts");
   }
 
-  // const callSecureApi = async () => {
-  //   try {
-  //     const token = await getAccessTokenSilently();
-
-  //     const response = await fetch(
-  //       `${serverUrl}/api/role`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         }
-  //       }
-  //     );
-
-  //     const responseData = await response.json();
-
-  //     setMessage(responseData.message);
-  //   } catch (error) {
-  //     setMessage(error.message);
-  //   }
-  // };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -75,7 +55,7 @@ export default function PostAdd(props) {
 
   return (
     <div>
-      <div className="container">
+      <div className="container" style={{width:800}}>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
@@ -95,7 +75,7 @@ export default function PostAdd(props) {
               className="form-control"
               placeholder="Título"
             />
-            <input
+            <textarea
               type="text"
               name="content"
               required
