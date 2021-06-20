@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import PostAdd from "../posts/PostAdd";
+import PostListTable from "../posts/PostListTable";
 
 function Heroadmin() {
   const [showAdd, setShowAdd] = useState(false);
+  const [showPostTable, setShowPostTable] = useState(false);
 
   function handleCloseAdd() {
     setShowAdd(false);
@@ -12,10 +14,22 @@ function Heroadmin() {
     setShowAdd(true);
   }
 
+  function handleCloseList() {
+    setShowPostTable(false);
+  }
+
+  function handleShowList(){
+    setShowPostTable(true);
+  }
+
   return (
     <div>
       <div>
         <PostAdd isOpen={showAdd} handleCloseAdd={handleCloseAdd}></PostAdd>
+      </div>
+
+      <div>
+        <PostListTable isOpen={showPostTable} handleCloseList={handleCloseList}></PostListTable>
       </div>
 
       <div className="text-center hero">
@@ -38,8 +52,11 @@ function Heroadmin() {
           </p>
         </div>
 
-        <button className="btn btn-dark" onClick={handleShowAdd}>
+        <button className="btn btn-dark mx-1" onClick={handleShowAdd}>
           Crear posteo
+        </button>
+        <button className="btn btn-dark mx-auto my-1 d-block " onClick={handleShowList}>
+          Administrar posteos
         </button>
       </div>
     </div>

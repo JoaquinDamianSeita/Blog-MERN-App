@@ -68,7 +68,7 @@ export default function PostAdd(props) {
         keyboard={false}
         centered
       >
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>Crear Posteo</Modal.Title>
         </Modal.Header>
         <Modal.Body>

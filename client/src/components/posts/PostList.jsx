@@ -1,14 +1,34 @@
-import React from "react";
+import { React, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import PostInfo from "./PostInfo";
 
 export default function PostList() {
+  const [showInfo, setShowInfo] = useState(false);
+  const [tempPostId, setTempPostId] = useState("");
+
+  function handleCloseInfo() {
+    setShowInfo(false);
+  }
+
+  function handleShowInfo(id) {
+    setTempPostId(id);
+    setShowInfo(true);
+  }
+
   const posts = useSelector((state) => {
     return state.posts;
   });
 
   return (
     <div>
+      <div>
+        <PostInfo
+          postId={tempPostId}
+          isOpen={showInfo}
+          handleCloseInfo={handleCloseInfo}
+        ></PostInfo>
+      </div>
+
       <div className="container background-white">
         <div>
           <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
@@ -38,7 +58,9 @@ export default function PostList() {
                         <p className="card-text mb-auto">
                           {post.content.substring(0, 100) + " ..."}
                         </p>
-                        <Link to={`/posts/${post._id}`}>Leer Más!</Link>
+                        <p style={{color:"#3415be",textDecoration:"underline"}} onClick={() => handleShowInfo(String(post._id))}>
+                          Leer Más!
+                        </p>
                       </div>
                       <div className="col-auto d-none d-lg-block">
                         <img
