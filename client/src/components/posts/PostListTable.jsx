@@ -27,30 +27,29 @@ export default function PostListTable(props) {
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
-              <th>#</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>Título</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td colSpan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {posts.length &&
+              posts.map((post) => {
+                return (
+                  <tr key={post._id}>
+                    <td>{post.title}</td>
+                    <td>{post.date}</td>
+                    <td>
+                      <div className="btn-group">
+                        <button className="btn btn-primary btn-sm">Edit</button>
+                        <button className="btn btn-danger btn-sm">
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </Table>
       </Modal.Body>
