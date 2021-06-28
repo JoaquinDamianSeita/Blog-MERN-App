@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import PostAdd from "../posts/PostAdd";
 import PostListTable from "../posts/PostListTable";
 
@@ -41,7 +40,7 @@ function Heroadmin() {
         />
         <h1 className="mb-4">Admin Mode</h1>
         <div className="d-flex justify-content-center">
-          <p className="lead" style={{ width: 500, textAlign: "center" }}>
+          <p className="lead px-3" style={{ width: 500, textAlign: "center" }}>
             Hola administrador, abajo vas a encontrar un botón que te permite
             publicar posteos nuevos, sin embargo solo los usuarios autorizados
             podrán hacer uso de esta función. Para autorizarte mandar un mail
@@ -55,7 +54,7 @@ function Heroadmin() {
         <button className="btn btn-dark mx-1" onClick={handleShowAdd}>
           Crear posteo
         </button>
-        <button className="btn btn-dark mx-auto my-1 d-block " onClick={handleShowList}>
+        <button className="btn btn-dark mx-auto my-1 " onClick={handleShowList}>
           Administrar posteos
         </button>
       </div>

@@ -1,11 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import AuthenticationButton from "../auth0/Authentication-button";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-function NavBarMain() {
+export default function NavBarMain() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark background-black mb-4">
-      <div className="container">
+    <Navbar
+      collapseOnSelect
+      expand="sm"
+      className="background-black mb-3"
+      variant="dark"
+    >
+      <Container>
         <h3>
           <NavLink
             exact
@@ -17,39 +23,46 @@ function NavBarMain() {
             Blog
           </NavLink>
         </h3>
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item px-1">
-            <NavLink exact className="nav-link" activeClassName="active" to="/">
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item px-1">
-            <NavLink
-              exact
-              className="nav-link"
-              activeClassName="active"
-              to="/posts"
-            >
-              Posteos
-            </NavLink>
-          </li>
-          <li className="nav-item px-1">
-            <NavLink
-              exact
-              className="nav-link"
-              activeClassName="active"
-              to="/profile"
-            >
-              Perfil
-            </NavLink>
-          </li>
-          <li className="nav-item px-1">
-            <AuthenticationButton />
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item px-1">
+              <NavLink
+                exact
+                className="nav-link"
+                activeClassName="active"
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item px-1">
+              <NavLink
+                exact
+                className="nav-link"
+                activeClassName="active"
+                to="/posts"
+              >
+                Posteos
+              </NavLink>
+            </li>
+            <li className="nav-item px-1">
+              <NavLink
+                exact
+                className="nav-link"
+                activeClassName="active"
+                to="/profile"
+              >
+                Perfil
+              </NavLink>
+            </li>
+            <li className="nav-item px-1">
+              <AuthenticationButton />
+            </li>
+          </ul>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
-
-export default NavBarMain;

@@ -40,7 +40,7 @@ router.post("/posts", checkJwt, checkJwtPermissions, function (req, res) {
 });
 
 router.patch("/posts/:id", checkJwt, checkJwtPermissions, function (req, res) {
-  Post.findByIdAndUpdate(req.params.id, req.body)
+  Post.findByIdAndUpdate(req.params.id, req.body.data)
     .then(function () {
       res.json("Post Updated");
     })
