@@ -48,8 +48,13 @@ export default function PostInfoModal(props) {
     traerPost();
   }, [dispatch, props]);
 
+  function imprimirAlgo() {
+    console.log("algo");
+  }
+
   async function handleDelete() {
     const token = await getAccessTokenSilently();
+
     axios
       .delete(`/api/posts/${post._id}`, {
         headers: {
@@ -61,6 +66,9 @@ export default function PostInfoModal(props) {
       })
       .catch((error) => {
         console.log("error", error);
+        alert(
+          `No estas autorizado a realizar esta acción! ${error} Enviar un mensaje a joaquindamianseita@gmail.com`
+        );
       });
     props.handleCloseInfo();
   }

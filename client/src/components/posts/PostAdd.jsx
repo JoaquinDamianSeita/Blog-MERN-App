@@ -74,6 +74,7 @@ export default function PostAdd(props) {
         <Modal.Body>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
+              <label className="form-label">Fecha:</label>
               <input
                 type="date"
                 name="date"
@@ -84,6 +85,7 @@ export default function PostAdd(props) {
               />
             </div>
             <div className="form-group">
+            <label className="form-label">Título:</label>
               <input
                 type="text"
                 name="title"
@@ -95,6 +97,7 @@ export default function PostAdd(props) {
               />
             </div>
             <div className="form-group">
+            <label className="form-label">Contenido:</label>
               <textarea
                 type="text"
                 name="content"

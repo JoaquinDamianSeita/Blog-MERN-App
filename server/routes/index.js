@@ -45,7 +45,7 @@ router.patch("/posts/:id", checkJwt, checkJwtPermissions, function (req, res) {
       res.json("Post Updated");
     })
     .catch(function (err) {
-      res.status(422).send("Post update failed.");
+      res.status(422).send(err, "Post update failed.");
     });
 });
 

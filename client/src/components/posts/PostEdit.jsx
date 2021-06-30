@@ -57,6 +57,7 @@ export default function PostEdit(props) {
       })
       .catch((error) => {
         console.log(error);
+        alert(`No estas autorizado a realizar esta acción! ${error} Enviar un mensaje a joaquindamianseita@gmail.com`);
       });
     props.handleCloseEdit();
   }
