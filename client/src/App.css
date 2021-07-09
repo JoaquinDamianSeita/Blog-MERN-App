@@ -4,18 +4,18 @@
   font-family: "Roboto", sans-serif;
 }
 
-.close ::before{
-  content: 'X';
+.close ::before {
+  content: "X";
   visibility: visible;
   color: "black";
   font-weight: bold;
 }
 
-.sr-only::before{
+.sr-only::before {
   visibility: hidden;
 }
 
-.close{
+.close {
   /*background-color: red; */
   visibility: hidden;
   position: absolute;
@@ -73,6 +73,13 @@ a {
   bottom: 0;
   left: 0;
   right: 0;
+}
+.spinner-tiny {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: white;
 }
 
 .loading {

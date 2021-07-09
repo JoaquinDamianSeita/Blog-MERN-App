@@ -13,11 +13,15 @@ export default function PostListTable(props) {
   const [tempPostId, setTempPostId] = useState("");
   const dispatch = useDispatch();
 
+  const posts = useSelector((state) => {
+    return state.posts;
+  });
+
   const { getAccessTokenSilently } = useAuth0();
 
   useEffect(() => {
     setOpen(props.isOpen);
-  }, [props.isOpen]);
+  }, [props.isOpen,posts]);
 
   function handleCloseInfo() {
     setShowInfo(false);
@@ -47,10 +51,6 @@ export default function PostListTable(props) {
         );
       });
   }
-
-  const posts = useSelector((state) => {
-    return state.posts;
-  });
 
   return (
     <div>

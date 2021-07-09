@@ -49,11 +49,14 @@ export default function PostAdd(props) {
           }
         )
         .then((response) => {
-          dispatch(addPost(response.date));
+          dispatch(addPost(response.data));
           setFields(initialState);
         })
         .catch((err) => {
           console.log(err);
+          alert(
+            `No estas autorizado a realizar esta acción! ${err} Enviar un mensaje a joaquindamianseita@gmail.com`
+          );
         });
     }
   }
@@ -85,7 +88,7 @@ export default function PostAdd(props) {
               />
             </div>
             <div className="form-group">
-            <label className="form-label">Título:</label>
+              <label className="form-label">Título:</label>
               <input
                 type="text"
                 name="title"
@@ -97,7 +100,7 @@ export default function PostAdd(props) {
               />
             </div>
             <div className="form-group">
-            <label className="form-label">Contenido:</label>
+              <label className="form-label">Contenido:</label>
               <textarea
                 type="text"
                 name="content"

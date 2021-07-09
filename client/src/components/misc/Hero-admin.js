@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PostAdd from "../posts/PostAdd";
 import PostListTable from "../posts/PostListTable";
+
+import { useSelector } from "react-redux";
 
 function Heroadmin() {
   const [showAdd, setShowAdd] = useState(false);
   const [showPostTable, setShowPostTable] = useState(false);
+
+  const posts = useSelector((state) => {
+    return state.posts;
+  });
+
+  useEffect(() => {
+    setShowAdd(false);
+  }, posts);
 
   function handleCloseAdd() {
     setShowAdd(false);
@@ -17,7 +27,7 @@ function Heroadmin() {
     setShowPostTable(false);
   }
 
-  function handleShowList(){
+  function handleShowList() {
     setShowPostTable(true);
   }
 
@@ -28,7 +38,10 @@ function Heroadmin() {
       </div>
 
       <div>
-        <PostListTable isOpen={showPostTable} handleCloseList={handleCloseList}></PostListTable>
+        <PostListTable
+          isOpen={showPostTable}
+          handleCloseList={handleCloseList}
+        ></PostListTable>
       </div>
 
       <div className="text-center hero">
