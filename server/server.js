@@ -8,6 +8,8 @@ const { clientOrigins, serverPort } = require("./config/env.dev");
 const app = express();
 const MONGODB_URI = "mongodb://localhost:27017/blog-app-db";
 
+const port = Process.env.PORT || serverPort;
+
 app.use(helmet());
 app.use(cors({ origin: clientOrigins }));
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +39,6 @@ mongoose.connection.on("error", function (error) {
   console.log("Mongoose Connection Error : " + error);
 });
 
-app.listen(serverPort, function () {
-  console.log(`Server listening on port ${serverPort}.`);
+app.listen(port, function () {
+  console.log(`Server listening on port ${port}.`);
 });
